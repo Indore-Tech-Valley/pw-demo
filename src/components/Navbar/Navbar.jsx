@@ -7,9 +7,11 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { CiUser, CiShoppingCart, CiMedicalClipboard } from "react-icons/ci";
+import UserAuthModal from "../Auth/UserAuthModal";
 
 export default function Navbar() {
   const [locationModalOpen, setLocationModalOpen] = useState(false);
+   const [userAuthModalOpen, setUserAuthModalOpen] = useState(false);
   const [location, setLocation] = useState("63, Maharani Rd - Siyaganj...");
   const [searchService, setSearchService] = useState("");
 
@@ -112,7 +114,9 @@ export default function Navbar() {
           <div className="flex items-center gap-6 text-xl text-gray-700">
             <CiMedicalClipboard className="cursor-pointer hover:text-indigo-600 text-2xl" />
             <CiShoppingCart className="cursor-pointer hover:text-indigo-600 text-2xl" />
-            <CiUser className="cursor-pointer hover:text-indigo-600 text-2xl" />
+            <CiUser 
+            onClick={() => setUserAuthModalOpen(true)}
+            className="cursor-pointer hover:text-indigo-600 text-2xl" />
           </div>
         </div>
 
@@ -128,8 +132,10 @@ export default function Navbar() {
             <div className="flex items-center gap-4 text-xl text-gray-700">
               <FaClipboardList className="cursor-pointer hover:text-indigo-600" />
               <FaShoppingCart className="cursor-pointer hover:text-indigo-600" />
-              <FaUser className="cursor-pointer hover:text-indigo-600" />
-            </div>
+  <FaUser 
+                className="cursor-pointer hover:text-indigo-600" 
+                onClick={() => setUserAuthModalOpen(true)}
+              />            </div>
           </div>
 
           {/* Location + Search */}
@@ -159,60 +165,69 @@ export default function Navbar() {
 
       {/* LOCATION MODAL */}
       {locationModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-          <div className="bg-white border border-indigo-300 rounded-xl shadow-xl max-w-md w-full p-8">
-            <h2 className="text-2xl font-bold text-indigo-800 mb-6 text-center">
-              Select Your Location
-            </h2>
-            <div className="relative mb-6">
-              <input
-                type="text"
-                className="w-full border border-indigo-300 rounded-lg px-4 py-3 pr-12 text-gray-700 placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Search location..."
-                onChange={(e) => setLocation(e.target.value)}
-                value={location}
-              />
-              <svg
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-indigo-400"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                width={20}
-                height={20}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-4.35-4.35M5 11a6 6 0 1112 0 6 6 0 01-12 0z"
-                />
-              </svg>
-            </div>
-            <button
-              onClick={handleUseCurrentLocation}
-              className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition mb-6"
-            >
-              Use My Current Location
-            </button>
-            <div className="flex justify-end gap-4">
-              <button
-                onClick={() => setLocationModalOpen(false)}
-                className="px-5 py-2 text-indigo-700 font-medium hover:underline"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => setLocationModalOpen(false)}
-                className="px-5 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 hover:shadow-lg"
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+  <div className="bg-white border border-gray-200 rounded-lg shadow-lg max-w-md w-full p-6">
+    <h2 className="text-2xl font-semibold text-center text-black mb-5">
+      Select Your Location
+    </h2>
+
+    <div className="relative mb-5">
+      <input
+        type="text"
+        placeholder="Search location..."
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        className="w-full border border-gray-300 rounded-md px-4 py-3 pr-10 text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
+      />
+      <svg
+        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        width={20}
+        height={20}
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-4.35-4.35M5 11a6 6 0 1112 0 6 6 0 01-12 0z"
+        />
+      </svg>
+    </div>
+
+    <button
+      onClick={handleUseCurrentLocation}
+      className="w-full bg-black text-white py-3 rounded-md font-medium hover:bg-gray-900 transition"
+    >
+      Use My Current Location
+    </button>
+
+    <div className="flex justify-end gap-4 mt-6">
+      <button
+        onClick={() => setLocationModalOpen(false)}
+        className="text-gray-600 hover:underline"
+      >
+        Cancel
+      </button>
+      <button
+        onClick={() => setLocationModalOpen(false)}
+        className="px-5 py-2 bg-black text-white rounded-md hover:bg-gray-900 transition"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
+
       )}
       
+         {/* USER AUTHENTICATION MODAL */}
+      <UserAuthModal 
+        isOpen={userAuthModalOpen} 
+        onClose={() => setUserAuthModalOpen(false)} 
+      />
     </>
   );
 }

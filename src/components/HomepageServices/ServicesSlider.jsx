@@ -102,9 +102,8 @@ const ServicesSlider = ({ title, services = [] }) => {
               {services.map((service, index) => (
                 <div key={index} className="px-2">
                   <Link
-                    to={`/service/${service.title
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()}`}
+                    to={`/service/${title
+                      .replace(/\s+/g, "-")}`}
                     className="block py-1"
                   >
                     <div

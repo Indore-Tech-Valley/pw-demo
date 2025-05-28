@@ -4,6 +4,7 @@
     FaInstagram,
     FaLinkedinIn,
   } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
   export default function Footer() {
     return (
@@ -26,7 +27,7 @@
                 <div>
                   <h4 className="text-base font-semibold mb-4 text-gray-900">Company</h4>
                   <ul className="space-y-2 cursor-pointer text-gray-600">
-                    <li>About us</li>
+                    <Link to={`/about`}>About us</Link>
                     <li>Terms & Conditions</li>
                     <li>Privacy Policy</li>
                     <li>Anti-discrimination Policy</li>

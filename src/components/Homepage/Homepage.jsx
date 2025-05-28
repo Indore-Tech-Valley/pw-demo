@@ -179,31 +179,48 @@ const Homepage = () => {
   />
 </div>
 
+<ServicesSlider
+  title="Home Cleaning Services"
+  services={[
+    {
+      title: "Kitchen Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Bathroom Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Sofa Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Full Home Deep Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Carpet Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Balcony Cleaning",
+      image:
+        "",
+    },
+    {
+      title: "Mattress Cleaning",
+      image:
+        "",
+    },
+  ]}
+/>
 
-      {/* <ServicesSlider
-        title="Salon for Women"
-        services={[
-          {
-            title: "Pedicure",
-            image:
-              "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1669782507190-9db197.jpeg",
-          },
-          {
-            title: "Waxing",
-            image:
-              "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_template,q_auto:low,f_auto/dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1681999813146-a2d7ed.jpeg",
-          },
-          { title: "Threading & face waxing", image: "threading.jpg" },
-          { title: "Facial & cleanup", image: "facial.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-          { title: "Manicure", image: "manicure.jpg" },
-        ]}
-      /> */}
+    
     </div>
   );
 };
