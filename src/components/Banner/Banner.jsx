@@ -1,92 +1,104 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Star, Users } from "lucide-react";
+import { CiStar } from "react-icons/ci";
+import { GoPeople } from "react-icons/go";
 
 const Banner = () => {
+  const leftRef = useRef(null);
+  const [leftHeight, setLeftHeight] = useState(0);
+
+  useEffect(() => {
+    if (leftRef.current) {
+      setLeftHeight(leftRef.current.offsetHeight + 40);
+    }
+  }, []);
+
   const services = [
     {
       title: "Women's Salon & Spa",
-      icon: "👩‍💼",
-      bgColor: "bg-pink-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1678864013225-bfc1de.jpeg",
     },
     {
       title: "Men's Salon & Massage",
-      icon: "👨‍💼",
-      bgColor: "bg-blue-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1710241114433-5cfa7c.jpeg",
     },
     {
       title: "AC & Appliance Repair",
-      icon: "❄️",
-      bgColor: "bg-green-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1741326936056-c3a39a.jpeg",
+
     },
     {
       title: "Cleaning",
-      icon: "🧹",
-      bgColor: "bg-yellow-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
+  
     },
     {
       title: "Electrician, Plumber & Carpenter",
-      icon: "🔧",
-      bgColor: "bg-orange-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
+  
     },
     {
       title: "Native Water Purifier",
-      icon: "💧",
-      bgColor: "bg-blue-100",
+      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:px-12">
-      <div className="w-full mx-aut">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left Section - Services */}
-          <div className="space-y-8">
-            {/* Header */}
-            <div>
-              <h1 className="text-3xl md:text-4xl px-4 font-bold text-gray-900 leading-tight">
-                Home services at your{" "}
-                <span className="block">doorstep</span>
-              </h1>
-            </div>
+    <div className="bg-gray-50 p-6 md:px-12">
+      <div className="w-full mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Section */}
+          <div ref={leftRef} className="space-y-8">
+            <h1 className="text-3xl md:text-4xl px-4 font-semibold text-gray-900 leading-tight">
+              Home services at your <span className="block">doorstep</span>
+            </h1>
 
-            {/* Services Grid */}
             <div className="rounded-2xl p-6 border border-gray-200">
               <h2 className="text-xl font-semibold text-gray-700 mb-6">
                 What are you looking for?
               </h2>
-              
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center p-4 rounded-xl  transition-all duration-300 cursor-pointer group"
-                  >
-                    <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="text-2xl">{service.icon}</span>
-                    </div>
-                    <p className="text-sm font-medium text-gray-700 text-center leading-tight">
-                      {service.title}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 items-stretch">
+  {services.map((service, index) => (
+  <div
+    key={index}
+    className="flex flex-col justify-between items-center p-1 h-full rounded-xl transition-all duration-300 cursor-pointer group"
+  >
+    <div
+      className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}
+    >
+      <img
+        src={service.icon}
+        alt={service.title}
+        className="w-full object-contain"
+      />
+    </div>
+
+    {/* Animated title with centered, spaced underline */}
+    <p className="text-sm font-medium text-gray-700 text-center leading-tight relative pb-2">
+      {service.title}
+      <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] w-12 bg-gray-500 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
+    </p>
+  </div>
+))}
+
+</div>
+
             </div>
 
-            {/* Stats */}
             <div className="flex items-center text-xl gap-8">
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-12 h-12 bg-yellow-100 rounded-full">
-                  <Star className="w-6 h-6 text-yellow-600 fill-current" />
+                <div className="w-12 h-12  rounded-full flex items-center justify-center">
+                  <CiStar className="w-8 h-8 fill-current" />
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-gray-900">4.8</div>
                   <div className="text-sm text-gray-600">Service Rating*</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full">
-                  <Users className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12  rounded-full flex items-center justify-center">
+                  <GoPeople className="w-8 h-8" />
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-gray-900">12M+</div>
@@ -96,67 +108,46 @@ const Banner = () => {
             </div>
           </div>
 
-          {/* Right Section - Images */}
-          <div className="relative md:block hidden lg:flex flex-col gap-4">
-            {/* Image Grid */}
-            <div className="grid grid-cols-2 gap-4 h-96 md:h-[500px]">
-              {/* Top Left - Salon Service */}
-              <div className="bg-gradient-to-br from-pink-200 to-pink-300 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-pink-400 opacity-20"></div>
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white bg-opacity-30 rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-2xl">💄</span>
-                    </div>
-                    <p className="text-sm font-medium">Beauty & Spa</p>
-                  </div>
-                </div>
+          {/* Right Section */}
+          <div
+            className="hidden lg:grid grid-cols-2 gap-3"
+            style={{ height: leftHeight ? `${leftHeight}px` : "auto" }}
+          >
+            {/* Column 1 */}
+            <div className="flex flex-col gap-3 h-full">
+              <div className="h-2/5 rounded-2xl overflow-hidden">
+                <img
+                  src="https://static.independent.co.uk/2022/04/21/21/health%20and%20beauty.jpg?width=1200&height=800&crop=1200:800"
+                  alt="Beauty & Spa"
+                  className="w-full h-full object-cover"
+                />
               </div>
-
-              {/* Top Right - Massage */}
-              <div className="bg-gradient-to-br from-amber-200 to-amber-300 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-amber-400 opacity-20"></div>
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white bg-opacity-30 rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-2xl">💆‍♂️</span>
-                    </div>
-                    <p className="text-sm font-medium">Massage Therapy</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Left - Home Repair */}
-              <div className="bg-gradient-to-br from-blue-200 to-blue-300 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-blue-400 opacity-20"></div>
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white bg-opacity-30 rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-2xl">🔧</span>
-                    </div>
-                    <p className="text-sm font-medium">Home Repair</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Right - AC Service */}
-              <div className="bg-gradient-to-br from-green-200 to-green-300 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-green-400 opacity-20"></div>
-                <div className="relative h-full flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-white bg-opacity-30 rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-2xl">❄️</span>
-                    </div>
-                    <p className="text-sm font-medium">AC Service</p>
-                  </div>
-                </div>
+              <div className="flex-grow rounded-2xl overflow-hidden">
+                <img
+                  src="https://zhl.org.in/blog/wp-content/uploads/2024/06/Massage-Therapists.jpg"
+                  alt="Massage Therapy"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full animate-bounce"></div>
-            <div className="absolute top-1/2 -left-4 w-6 h-6 bg-pink-400 rounded-full animate-pulse"></div>
-            <div className="absolute -bottom-4 left-1/3 w-10 h-10 bg-blue-400 rounded-full animate-bounce delay-150"></div>
+            {/* Column 2 */}
+            <div className="flex flex-col gap-3 h-full">
+              <div className="h-1/3 rounded-2xl overflow-hidden">
+                <img
+                  src="https://greenbuildingscareermap.org/assets/images/Building-Automation-Systems-Technician_resized.jpg"
+                  alt="Home Repair"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-grow rounded-2xl overflow-hidden">
+                <img
+                  src="https://www.shutterstock.com/image-photo/hvac-technician-performing-air-conditioner-600nw-2488702851.jpg"
+                  alt="AC Service"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

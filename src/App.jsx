@@ -7,16 +7,17 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 import Index from './Routes/Index'
 
 function App() {
-
   return (
     <>
-     <BrowserRouter>
-       <Navbar />
-        <Index/>
-       <Footer />
-     </BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <div className="lg:pt-16 pt-24"> {/* pushes Index below the fixed navbar */}
+          <Index />
+        </div>
+        <Footer className="" />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App

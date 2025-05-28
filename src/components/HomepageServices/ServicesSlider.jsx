@@ -23,15 +23,15 @@ const ServicesSlider = ({ title, services = [] }) => {
   useEffect(() => {
     const updateSlidesPerView = () => {
       if (window.innerWidth < 640) {
-        setSlidesToShow(1);
+        setSlidesToShow(2); // sm
       } else if (window.innerWidth < 768) {
-        setSlidesToShow(2);
+        setSlidesToShow(3); // md
       } else if (window.innerWidth < 1024) {
-        setSlidesToShow(4);
+        setSlidesToShow(4); // lg
       } else if (window.innerWidth < 1280) {
-        setSlidesToShow(6);
+        setSlidesToShow(5); // xl
       } else {
-        setSlidesToShow(7);
+        setSlidesToShow(6); // 2xl and above
       }
     };
 
@@ -47,7 +47,7 @@ const ServicesSlider = ({ title, services = [] }) => {
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    arrows: false, // We'll use our custom buttons instead
+    arrows: false, // We'll use custom buttons
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
@@ -55,39 +55,8 @@ const ServicesSlider = ({ title, services = [] }) => {
       setIsBeginning(current === 0);
       setIsEnd(current + slidesToShow >= services.length);
     },
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-    ],
   };
 
-  // Don't render if no services provided
   if (!services || services.length === 0) {
     return null;
   }
@@ -95,11 +64,11 @@ const ServicesSlider = ({ title, services = [] }) => {
   return (
     <>
       {/* Desktop Slider */}
-      <div className=" mx-auto py-4 px-4 md:px-8 relative">
-        <div className="flex items-center justify-between mb-6 md:px-4 md:ml-2">
+      <div className=" py-4 px-8 md:px-8 relative">
+        <div className="max-w-7xl mx-auto flex items-center justify-between mb-6 md:px-4 md:ml-2">
           <h2 className="text-2xl font-bold text-indigo-900">{title}</h2>
 
-          {/* Navigation buttons on the right side */}
+          {/* Navigation buttons */}
           <div className="flex space-x-2">
             <button
               className={`p-2 rounded-full ${
@@ -126,40 +95,42 @@ const ServicesSlider = ({ title, services = [] }) => {
           </div>
         </div>
 
-        <div className="container relative py-2">
-          <Slider ref={setSliderRef} {...settings}>
-            {services.map((service, index) => (
-              <div key={index} className="px-2">
-                <Link
-                  to={`/service/${service.title
-                    .replace(/\s+/g, "-")
-                    .toLowerCase()}`}
-                  className="block py-1"
-                >
-                 <div
-  className="w-40 md:w-44 h-48 mx-auto bg-white text-indigo-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-end justify-end p-3 border border-indigo-100 relative overflow-hidden"
-  style={{
-    backgroundImage: `url(${service.image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  <div className="bg-white/80 backdrop-blur-sm w-full text-center py-1 rounded-md">
-    <p className="text-indigo-800 font-semibold text-sm tracking-wide">
-      {service.title}
-    </p>
-  </div>
-</div>
-
-                </Link>
-              </div>
-            ))}
-          </Slider>
+        {/* Centered slider container */}
+        <div className="relative py-2 flex justify-between">
+          <div className="w-full max-w-[1280px]">
+            <Slider ref={setSliderRef} {...settings}>
+              {services.map((service, index) => (
+                <div key={index} className="px-2">
+                  <Link
+                    to={`/service/${service.title
+                      .replace(/\s+/g, "-")
+                      .toLowerCase()}`}
+                    className="block py-1"
+                  >
+                    <div
+                      className="w-36 md:w-44 h-48 mx-auto bg-white text-indigo-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-end justify-end p-3 border border-indigo-100 relative overflow-hidden"
+                      style={{
+                        backgroundImage: `url(${service.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                      }}
+                    >
+                      <div className="bg-white/80 backdrop-blur-sm w-full text-center py-1 rounded-md">
+                        <p className="text-indigo-800 font-semibold text-sm tracking-wide">
+                          {service.title}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Grid */}
+      {/* Mobile Grid (commented out in original) */}
       {/* <div className="container block md:hidden mx-auto px-4">
         <h2 className="text-2xl font-bold text-indigo-900 mb-6">
           {title}
