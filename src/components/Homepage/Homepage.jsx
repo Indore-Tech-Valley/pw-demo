@@ -116,7 +116,7 @@ const Homepage = () => {
         ]}
       />
 
-<div className="px-12">
+<div className="px-4 md:px-12">
       {/* Water Purifier Banner */}
       <PromotionalBanner
         title="2 years of worry-free water"
@@ -137,7 +137,7 @@ const Homepage = () => {
       />
       </div>
 
-<div className="px-12">
+<div className="px-4 md:px-12">
   {/* Cleaning Wala Banner */}
   <PromotionalBanner
     title="Sparkling Clean Homes"
