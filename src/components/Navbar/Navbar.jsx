@@ -5,15 +5,20 @@ import {
   FaClipboardList,
   FaShoppingCart,
   FaUser,
+  FaCartPlus,
 } from "react-icons/fa";
-import { CiUser, CiShoppingCart, CiMedicalClipboard } from "react-icons/ci";
+// import { CiUser, CiShoppingCart, CiMedicalClipboard } from "react-icons/ci";
+import { BsFillBookmarkPlusFill } from "react-icons/bs";
+
 import UserAuthModal from "../Auth/UserAuthModal";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [locationModalOpen, setLocationModalOpen] = useState(false);
    const [userAuthModalOpen, setUserAuthModalOpen] = useState(false);
   const [location, setLocation] = useState("63, Maharani Rd - Siyaganj...");
   const [searchService, setSearchService] = useState("");
+  const navigate = useNavigate();
 
   // Typing placeholder effect
   const services = ["facial", "makeup", "hair spa", "pedicure", "bridal service"];
@@ -99,7 +104,7 @@ export default function Navbar() {
               <span className="ml-auto">&#9662;</span>
             </div>
 
-            <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 max-w-md text-sm text-gray-700">
+            <div id="search" className="flex items-center border border-gray-300 rounded-md px-3 py-2 max-w-md text-sm text-gray-700">
               <FaSearch className="mr-2 text-gray-500" />
               <input
                 type="text"
@@ -113,11 +118,16 @@ export default function Navbar() {
 
           {/* Right: Icons */}
           <div className="flex items-center gap-6 text-xl text-gray-700">
-            <CiMedicalClipboard className="cursor-pointer hover:text-indigo-600 text-2xl" />
-            <CiShoppingCart className="cursor-pointer hover:text-indigo-600 text-2xl" />
-            <CiUser 
+            <FaClipboardList
+              onClick={() => navigate("/bookings")}
+            className="cursor-pointer  text-2xl" />
+            <FaCartPlus
+                        onClick={() => navigate("/cart")}
+
+            className="cursor-pointer  text-2xl" />
+            <FaUser 
             onClick={() => setUserAuthModalOpen(true)}
-            className="cursor-pointer hover:text-indigo-600 text-2xl" />
+            className="cursor-pointer  text-2xl" />
           </div>
         </div>
 
@@ -131,8 +141,13 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-4 text-xl text-gray-700">
-              <FaClipboardList className="cursor-pointer hover:text-indigo-600" />
-              <FaShoppingCart className="cursor-pointer hover:text-indigo-600" />
+              <FaClipboardList 
+                onClick={() => navigate("/bookings")}
+
+              className="cursor-pointer hover:text-indigo-600" />
+              <FaShoppingCart
+                onClick={() => navigate("/cart")}
+              className="cursor-pointer hover:text-indigo-600" />
   <FaUser 
                 className="cursor-pointer hover:text-indigo-600" 
                 onClick={() => setUserAuthModalOpen(true)}
@@ -225,20 +240,25 @@ export default function Navbar() {
       )}
       {/* Mobile Bottom Navigation */}
 <div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 flex justify-around items-center h-14 md:hidden">
-  <div className="flex flex-col items-center text-xs text-gray-700">
+  <div
+  onClick={() => navigate("/bookings")}
+   className="flex flex-col items-center text-xs text-gray-700">
     <FaClipboardList className="text-xl mb-1" />
     <span>Bookings</span>
   </div>
   <div className="flex flex-col items-center text-xs text-gray-700">
-    <FaSearch className="text-xl mb-1" />
+    <FaSearch   onClick={() => navigate("/  #search")}
+ className="text-xl mb-1" />
     <span>Search</span>
   </div>
-  <div className="flex flex-col items-center text-xs  text-gray-700 relative">
+  <div   onClick={() => navigate("/cart")}
+className="flex flex-col items-center text-xs  text-gray-700 relative">
     <FaShoppingCart className="text-xl mb-1" />
     <span>Cart</span>
     <div className="absolute top-0 right-2 w-2 h-2 rounded-full"></div>
   </div>
-  <div className="flex flex-col items-center text-xs text-gray-700">
+  <div   onClick={() => navigate("/profile")}
+className="flex flex-col items-center text-xs text-gray-700">
     <FaUser className="text-xl mb-1" />
     <span>Profile</span>
   </div>

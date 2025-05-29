@@ -86,7 +86,7 @@ const addToCartFromModal = (packageItem) => {
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Left Sidebar - Services */}
-      <div className="w-64 bg-white border-r border-gray-200 p-4">
+      <div className="w-36 md:w-64 bg-white border-r border-gray-200 p-4">
         <h3 className="text-sm font-medium text-gray-500 mb-4">Select a service</h3>
         <div className="space-y-2">
           {services.map((service) => (
@@ -106,7 +106,7 @@ const addToCartFromModal = (packageItem) => {
       </div>
 
       {/* Main Content - Packages */}
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-2 md:p-6">
         <h1 className="text-2xl font-bold text-gray-900 mb-6">Packages</h1>
         
         <div className="space-y-6">
@@ -139,7 +139,7 @@ const addToCartFromModal = (packageItem) => {
     e.stopPropagation(); // Prevents modal from opening
     addToCart(pkg);
   }}
-  className="px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+  className="px-3 md:px-6 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
 >
   Add
 </button>
@@ -163,7 +163,7 @@ const addToCartFromModal = (packageItem) => {
       </div>
 
       {/* Right Sidebar - Cart */}
-      <div className="w-80 bg-white border-l border-gray-200 p-6">
+      <div className="hidden  md:block w-80 bg-white border-l border-gray-200 p-6">
         <h2 className="text-xl font-bold text-gray-900 mb-6">Cart</h2>
         
         <div className="space-y-4 mb-6">
