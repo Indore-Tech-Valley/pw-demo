@@ -113,7 +113,7 @@ export default function Navbar() {
                 <span className="ml-auto">&#9662;</span>
               </div>
 
-            <div id="search" className="flex items-center border border-gray-300 rounded-md px-3 py-2 max-w-md text-sm text-gray-700">
+            <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 max-w-md text-sm text-gray-700">
               <FaSearch className="mr-2 text-gray-500" />
               <input
                 type="text"
@@ -183,7 +183,7 @@ export default function Navbar() {
               </div>
 
               <div className="flex items-center border rounded-md px-3 py-2 w-full text-sm text-gray-700">
-                <FaSearch className="mr-2 text-gray-500 flex-shrink-0" />
+                <FaSearch id="search" className="mr-2 text-gray-500 flex-shrink-0" />
                 <input
                   type="text"
                   placeholder={searchService ? "" : `Search for ${placeholder}...`}
@@ -264,7 +264,8 @@ export default function Navbar() {
     <span>Bookings</span>
   </div>
   <div className="flex flex-col items-center text-xs text-gray-700">
-    <FaSearch   onClick={() => navigate("/  #search")}
+    <FaSearch 
+      // onClick={() => navigate("/  #search")}
  className="text-xl mb-1" />
     <span>Search</span>
   </div>
