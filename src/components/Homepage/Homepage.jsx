@@ -102,7 +102,7 @@ const Homepage = () => {
           title="Sparkling Clean Homes"
           subtitle="Professional cleaning services you can trust"
           buttonText="Book Now"
-          backgroundImage="https://lancastercleaning.co/images/home/banner.jpg"
+          backgroundImage="https://png.pngtree.com/background/20230615/original/pngtree-blue-bucket-with-cleaning-supplies-on-a-wooden-background-picture-image_3540315.jpg"
           backgroundColor="from-green-800 to-green-900"
           image={cleanerman}
           imageAlt="Professional cleaner cleaning a living room"

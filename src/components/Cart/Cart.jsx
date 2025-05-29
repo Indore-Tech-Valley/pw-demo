@@ -161,7 +161,7 @@ const Cart = () => {
                   {/* Service Details */}
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
-                      <div>
+                      <div className=''>
                         <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded mb-2">
                           {item.category}
                         </span>
@@ -184,7 +184,7 @@ const Cart = () => {
                       {/* Remove Button */}
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-red-500 hover:text-red-700 p-1"
+                        className="text-red-500 hover:text-red-700 p-1 px-4"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
@@ -201,17 +201,17 @@ const Cart = () => {
                       </div>
 
                       {/* Quantity Controls */}
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-1 px-2">
                         <button
                           onClick={() => updateQuantity(item.id, -1)}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                          className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
                         >
                           <Minus className="w-4 h-4" />
                         </button>
                         <span className="font-medium w-8 text-center">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, 1)}
-                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
+                          className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
                         >
                           <Plus className="w-4 h-4" />
                         </button>
