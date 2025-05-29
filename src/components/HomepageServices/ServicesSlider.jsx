@@ -64,8 +64,9 @@ const ServicesSlider = ({ title, services = [] }) => {
   return (
     <>
       {/* Desktop Slider */}
-      <div className=" py-4 px-8 md:px-8 relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between mb-6 md:px-4 md:ml-2">
+      <div className="p-6 md:px-12 w-full">
+      <div className=" relative max-w-7xl mx-auto">
+        <div className=" flex items-center justify-between mb-6 md:px-4 ">
           <h2 className="text-2xl font-bold text-indigo-900">{title}</h2>
 
           {/* Navigation buttons */}
@@ -107,7 +108,7 @@ const ServicesSlider = ({ title, services = [] }) => {
                     className="block py-1"
                   >
                     <div
-                      className="w-36 md:w-44 h-48 mx-auto bg-white text-indigo-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-end justify-end p-3 border border-indigo-100 relative overflow-hidden"
+                      className="w-36 md:w-44 h-48  bg-white text-indigo-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-end justify-end p-3 border border-indigo-100 relative overflow-hidden"
                       style={{
                         backgroundImage: `url(${service.image})`,
                         backgroundSize: "cover",
@@ -127,6 +128,7 @@ const ServicesSlider = ({ title, services = [] }) => {
             </Slider>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Mobile Grid (commented out in original) */}

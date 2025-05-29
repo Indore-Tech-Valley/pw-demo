@@ -8,17 +8,17 @@ import { Link } from "react-router-dom";
 
   export default function Footer() {
     return (
-    <footer className="bg-[#f9f9f9] py-12 text-gray-800 text-sm">
+    <footer className="bg-[#f9f9f9] py-12 text-gray-800 text-sm p-6 md:px-12 w-full">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             {/* Top Section */}
             <div className="flex flex-col lg:flex-row justify-between gap-10">
               {/* Logo */}
               <div className="mb-6 lg:mb-0">
-                <div className="text-2xl font-bold tracking-wide text-indigo-900 select-none">
-                  <span className="text-indigo-700">PW</span>
-                  <span className="text-gray-700">Demo</span>
-                </div>
+                 <div className="flex items-center gap-2 cursor-pointer">
+              <div className="bg-black text-white font-bold rounded-md px-2 py-1 text-sm">PW</div>
+              <div className="font-semibold text-gray-800 text-lg">PW Demo</div>
+            </div>
               </div>
 
               {/* Footer Links */}
@@ -84,7 +84,7 @@ import { Link } from "react-router-dom";
             </div>
 
             {/* Bottom Note */}
-            <div className="mt-12 pt-6 border-t border-gray-300 text-center text-xs text-gray-500">
+            <div className="mt-12 py-6 border-t border-gray-300 text-center text-xs text-gray-500">
               <p>* As on December 31, 2025</p>
               <p className="mt-2">
                 © 2025 Tech Valley Mart Ltd. All rights reserved. | CIN:

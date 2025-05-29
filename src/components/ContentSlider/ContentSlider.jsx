@@ -77,9 +77,9 @@ const ContentSlider = ({ banners }) => {
   }
 
   return (
-    <div className="p-6 md:px-12">
+    <div className=" p-6 md:px-12 w-full">
       
-      <div className="relative">
+      <div className="relative max-w-7xl mx-auto">
         <Slider {...settings} nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
           {banners.map((banner, index) => (
             <div key={index} className="px-2">

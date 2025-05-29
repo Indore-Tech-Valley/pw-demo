@@ -44,12 +44,12 @@ const Banner = () => {
   ];
 
   return (
-    <div className="bg-gray-50 p-6 md:px-12">
-      <div className="w-full mx-auto">
+    <div className="bg-gray-50 p-6 md:px-12 w-full">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Section */}
           <div ref={leftRef} className="space-y-8">
-            <h1 className="text-3xl md:text-4xl px-4 font-semibold text-gray-900 leading-tight">
+            <h1 className="text-3xl md:text-4xl  font-semibold text-gray-900 leading-tight">
               Home services at your <span className="block">doorstep</span>
             </h1>
 

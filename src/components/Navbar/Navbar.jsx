@@ -76,14 +76,15 @@ export default function Navbar() {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="w-full h-16 border-b border-gray-200 bg-white fixed z-50">
+      <div className="  w-full"><div className="max-w-7xl ">
+      <nav className="w-full  h-16 lg:border-b border-gray-200 bg-white lg:fixed relative z-50">
         {/* Desktop Layout */}
-        <div className="max-w-7xl mx-auto hidden md:flex items-center justify-between px-12 py-3">
+        <div className="max-w-7xl mx-auto hidden md:flex items-center justify-between py-3">
           {/* Left: Logo */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <div className="text-2xl font-bold tracking-wide text-indigo-900 select-none">
-              <span className="text-indigo-700">PW</span>
-              <span className="text-gray-700">Demo</span>
+             <div className="flex items-center gap-2 cursor-pointer">
+              <div className="bg-black text-white font-bold rounded-md px-2 py-1 text-sm">PW</div>
+              <div className="font-semibold text-gray-800 text-lg">PW Demo</div>
             </div>
           </div>
 
@@ -222,7 +223,27 @@ export default function Navbar() {
 </div>
 
       )}
-      
+      {/* Mobile Bottom Navigation */}
+<div className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 flex justify-around items-center h-14 md:hidden">
+  <div className="flex flex-col items-center text-xs text-gray-700">
+    <FaClipboardList className="text-xl mb-1" />
+    <span>Bookings</span>
+  </div>
+  <div className="flex flex-col items-center text-xs text-gray-700">
+    <FaSearch className="text-xl mb-1" />
+    <span>Search</span>
+  </div>
+  <div className="flex flex-col items-center text-xs  text-gray-700 relative">
+    <FaShoppingCart className="text-xl mb-1" />
+    <span>Cart</span>
+    <div className="absolute top-0 right-2 w-2 h-2 rounded-full"></div>
+  </div>
+  <div className="flex flex-col items-center text-xs text-gray-700">
+    <FaUser className="text-xl mb-1" />
+    <span>Profile</span>
+  </div>
+</div>
+</div></div>
          {/* USER AUTHENTICATION MODAL */}
       <UserAuthModal 
         isOpen={userAuthModalOpen} 
