@@ -10,6 +10,10 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 3000,
   },
+    build: {
+    outDir: 'build'  // This changes output folder from dist to build
+  },
+  base:'/pw-demo/',
   plugins: [react(),tailwindcss(),VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt'],
@@ -34,4 +38,11 @@ export default defineConfig({
         ],
       },
     }),],
+
+  // build: {
+  //   outDir: 'build', // Output directory is "build"
+  //   rollupOptions: {
+  //     input: 'index.html',
+  //   },
+  // },  
 })

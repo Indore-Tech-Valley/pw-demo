@@ -4,10 +4,12 @@ import Homepage from '../components/Homepage/Homepage'
 import AboutUs from '../components/AboutUs/AboutUs';
 import BeautySalonInterface from '../components/BeautySalonInterface/BeautySalonInterface';
 import CleaningServiceInterface from '../components/BeautySalonInterface/CleaningServiceInterface';
+import ScrollToTop from '../pages/ScrollToTop/ScrollToTop';
 
 const Index = () => {
   return (
    <>
+   <ScrollToTop />
    <Routes>
     <Route path="/" element={<Homepage />} />
     {/* Add more routes here as needed */}

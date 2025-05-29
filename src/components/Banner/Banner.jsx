@@ -2,9 +2,11 @@ import React, { useRef, useEffect, useState } from "react";
 import { Star, Users } from "lucide-react";
 import { CiStar } from "react-icons/ci";
 import { GoPeople } from "react-icons/go";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const leftRef = useRef(null);
+  const navigate=useNavigate();
   const [leftHeight, setLeftHeight] = useState(0);
 
   useEffect(() => {
@@ -61,6 +63,7 @@ const Banner = () => {
   {services.map((service, index) => (
   <div
     key={index}
+    onClick={() => navigate(`/service/Salon-for-Women`)}
     className="flex flex-col justify-between items-center p-1 h-full rounded-xl transition-all duration-300 cursor-pointer group"
   >
     <div
