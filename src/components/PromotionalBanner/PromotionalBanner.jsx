@@ -45,7 +45,7 @@ const PromotionalBanner = ({
           <button
             onClick={handleButtonClick}
             aria-label={buttonText}
-            className="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             {buttonText}
           </button>
@@ -53,11 +53,11 @@ const PromotionalBanner = ({
       </div>
 
       {/* Disclaimer */}
-      {disclaimer && (
-        <div className="absolute bottom-2 right-4 text-xs text-white opacity-60 z-10">
-          {disclaimer}
-        </div>
-      )}
+      {/* {disclaimer && (
+        <div className="absolute bottom-2 right-4 text-xs text-white font-bold p-2 opacity-60 z-10">
+        //   {disclaimer}
+        // </div>
+      )} */}
     </div>
     </div>
   );

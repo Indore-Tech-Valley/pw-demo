@@ -2,6 +2,15 @@ import React, { useRef, useEffect, useState } from "react";
 import { Star, Users } from "lucide-react";
 import { CiStar } from "react-icons/ci";
 import { GoPeople } from "react-icons/go";
+import acImage from './BannerImages/ac.jpg';
+import cleaningImage from './BannerImages/cleaning.jpg';
+import girlImage from './BannerImages/girl.jpg';
+import tapImage from './BannerImages/tap.jpg';
+import waterPurifierImage from './BannerImages/water_purifier.jpg';
+import boy from './BannerImages/boy.jpg';
+
+
+
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Banner = () => {
@@ -18,36 +27,36 @@ const Banner = () => {
   const services = [
     {
       title: "Women's Salon & Spa",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1678864013225-bfc1de.jpeg",
+      icon: girlImage,
     },
     {
       title: "Men's Salon & Massage",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1710241114433-5cfa7c.jpeg",
+      icon: boy,
     },
     {
       title: "AC & Appliance Repair",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/supply/customer-app-supply/1741326936056-c3a39a.jpeg",
+      icon: acImage,
 
     },
     {
       title: "Cleaning",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/home-screen/1681711961404-75dfec.jpeg",
+      icon: cleaningImage,
   
     },
     {
       title: "Electrician, Plumber & Carpenter",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1658402794135-faf080.png",
+      icon: tapImage,
   
     },
     {
-      title: "Native Water Purifier",
-      icon: "https://res.cloudinary.com/urbanclap/image/upload/t_high_res_category/w_56,dpr_2,fl_progressive:steep,q_auto:low,f_auto,c_limit/images/growth/luminosity/1705340729734-0a23f7.jpeg",
+      title: "Water Purifier",
+      icon: waterPurifierImage,
     },
   ];
 
   return (
-    <div className="bg-gray-50 p-6 md:px-12 w-full">
-      <div className="max-w-7xl mx-auto">
+    <div className=" p-6 md:px-12 w-full">
+      <div className="max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Section */}
           <div ref={leftRef} className="space-y-8">
@@ -56,10 +65,10 @@ const Banner = () => {
             </h1>
 
             <div className="rounded-2xl p-6 border border-gray-200">
-              <h2 className="text-xl font-semibold text-gray-700 mb-6">
+              <h2 className="text-xl font-semibold text-gray-700 mb-6 ">
                 What are you looking for?
               </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 items-stretch">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 items-stretch ">
   {services.map((service, index) => (
   <div
     key={index}
@@ -94,7 +103,7 @@ const Banner = () => {
                   <CiStar className="w-8 h-8 fill-current" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">4.8</div>
+                  <div className="text-2xl font-bold text-gray-900">4.6</div>
                   <div className="text-sm text-gray-600">Service Rating*</div>
                 </div>
               </div>
@@ -104,7 +113,7 @@ const Banner = () => {
                   <GoPeople className="w-8 h-8" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-gray-900">12M+</div>
+                  <div className="text-2xl font-bold text-gray-900">10k+</div>
                   <div className="text-sm text-gray-600">Customers Globally*</div>
                 </div>
               </div>

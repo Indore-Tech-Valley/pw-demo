@@ -8,30 +8,32 @@ import cleanerman from '/cleanerman-1.png'; // Adjust path as needed
 
 const Homepage = () => {
   const slidesData = [
-    {
-      image:
-        "https://media.istockphoto.com/id/1417833200/photo/happy-professional-cleaners-cleaning-a-bathroom-at-an-apartment.jpg?s=612x612&w=0&k=20&c=98suJNqwaQnlzReilcdcfGDz_G7QNGUmha2Gm-6Yzug=",
-      title: "Exciting Deals on Toys!",
-      description: "Shop the latest fun and educational toys at amazing discounts.",
-      link: "/category/toys",
-      tag: "Limited stock",
-    },
-    {
-      image:
-        "https://www.pureitwater.com/media/catalog/product/e/c/echowaterhero.jpg",
-      title: "Premium Services for You!",
-      description: "Get top-notch services tailored to your needs at unbeatable prices.",
-      link: "/services",
-      tag: "Best in Photography service",
-    },
-    {
-      image: "https://techsquadteam.com/assets/profile/blogimages/8c42c134c477b719fd540549fdaf44fb.jpg",
-      title: "Exclusive Electronics Sale!",
-      description: "Upgrade to the latest gadgets and electronics with special discounts.",
-      link: "/category/electronics",
-      tag: "Hot deals",
-    },
-  ];
+  {
+    image:
+      "https://techsquadteam.com/assets/profile/blogimages/8c42c134c477b719fd540549fdaf44fb.jpg",
+    title: "Complete Home Cleaning",
+    description: "Make your home shine with our affordable and expert cleaning solutions.",
+    link: "/services/home-cleaning",
+    tag: "Home Sparkle"
+  },
+  {
+    image:
+      "https://www.pureitwater.com/media/catalog/product/e/c/echowaterhero.jpg",
+    title: "RO Water Purifier Service",
+    description: "Ensure your family drinks safe and pure water with regular RO maintenance.",
+    link: "/services/ro-purifier",
+    tag: "Safe Water"
+  },
+  {
+    image:
+      "https://media.istockphoto.com/id/1417833200/photo/happy-professional-cleaners-cleaning-a-bathroom-at-an-apartment.jpg?s=612x612&w=0&k=20&c=98suJNqwaQnlzReilcdcfGDz_G7QNGUmha2Gm-6Yzug=",
+    title: "Expert Bathroom Cleaning",
+    description: "Deep clean your bathroom with our professional and hygienic service.",
+    link: "/services/bathroom-cleaning",
+    tag: "Sparkling Clean"
+  }
+];
+
 
   const sampleServices = [
     { name: "Foam-jet AC service", rating: 4.78, reviews: 1600000, price: 649 , image:"https://www.devair.co.in/images/services/2.jpg"},
@@ -64,7 +66,7 @@ const Homepage = () => {
         ]}
       />
 
-      <div className="px-4 md:px-12">
+      <div className="">
       <PromotionalBanner
   title="2 years of worry-free water"
   subtitle="Needs no service for 2 years*"
@@ -95,12 +97,12 @@ const Homepage = () => {
 
       />
 
-      <div className="px-4 md:px-12">
+      <div className="">
         <PromotionalBanner
           title="Sparkling Clean Homes"
           subtitle="Professional cleaning services you can trust"
           buttonText="Book Now"
-          backgroundImage="https://www.urbancleaner.in/event-images/630-professional-cleaner.png"
+          backgroundImage="https://lancastercleaning.co/images/home/banner.jpg"
           backgroundColor="from-green-800 to-green-900"
           image={cleanerman}
           imageAlt="Professional cleaner cleaning a living room"

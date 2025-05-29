@@ -5,19 +5,32 @@
     FaLinkedinIn,
   } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.jpg"
 
   export default function Footer() {
     return (
     <footer className="bg-[#f9f9f9] py-12 text-gray-800 text-sm p-6 md:px-12 w-full">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto ">
           <div className="max-w-7xl mx-auto">
             {/* Top Section */}
             <div className="flex flex-col lg:flex-row justify-between gap-10">
               {/* Logo */}
-              <div className="mb-6 lg:mb-0">
+              <div className="lg:mb-6 mb-0">
                  <div className="flex items-center gap-2 cursor-pointer">
-              <div className="bg-black text-white font-bold rounded-md px-2 py-1 text-sm">PW</div>
-              <div className="font-semibold text-gray-800 text-lg">PW Demo</div>
+              {/* <div className="bg-black text-white font-bold rounded-md px-2 py-1 text-sm">PW</div> */}
+              <div className="flex items-center gap-2 cursor-pointer">
+              <Link to="/" className="flex items-center space-x-2">
+               <img
+                 src={logo}
+                 alt="PW Logo"
+                 className="h-10 w-auto object-contain bg-white border rounded-4xl "
+               />
+               {/* <span className="text-black text-xl font-semibold">PW</span> */}
+             </Link>
+             
+             </div>
+                           
+
             </div>
               </div>
 

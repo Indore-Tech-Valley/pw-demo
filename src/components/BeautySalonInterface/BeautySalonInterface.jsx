@@ -95,7 +95,8 @@ const addToCartFromModal = (packageItem) => {
   const needToSpend = Math.max(0, discountThreshold - cartTotal);
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className='p-6 md:px-12 w-full'>
+    <div className="flex min-h-screen bg-gray-50 max-w-7xl mx-auto">
       {/* Left Sidebar - Services */}
       <div className="w-36 md:w-64 bg-white border-r border-gray-200 p-4">
         <h3 className="text-sm font-medium text-gray-500 mb-4">Select a service</h3>
@@ -377,6 +378,7 @@ const addToCartFromModal = (packageItem) => {
     </div>
   </div>
 )}
+    </div>
     </div>
   );
 };

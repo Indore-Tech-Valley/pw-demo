@@ -12,10 +12,10 @@ const Services = ({ title, products }) => {
 
   return (
     <div className='p-6 md:px-12 w-full'>
-    <div className=" max-w-7xl mx-auto py-6">
+    <div className=" max-w-7xl mx-auto">
       {/* Title Row */}
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+      <div className="flex items-center justify-between mb-6 md:px-4 mx-auto ">
+        <h2 className="text-2xl font-bold text-indigo-900">{title}</h2>
         <a href="#" className="text-violet-600 font-medium text-sm hover:underline">
           See all
         </a>

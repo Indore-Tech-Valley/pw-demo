@@ -66,7 +66,7 @@ const ServicesSlider = ({ title, services = [] }) => {
       {/* Desktop Slider */}
       <div className="p-6 md:px-12 w-full">
       <div className=" relative max-w-7xl mx-auto">
-        <div className=" flex items-center justify-between mb-6 md:px-4 ">
+        <div className=" flex items-center justify-between mb-6 md:px-4 mx-auto ">
           <h2 className="text-2xl font-bold text-indigo-900">{title}</h2>
 
           {/* Navigation buttons */}
@@ -98,14 +98,14 @@ const ServicesSlider = ({ title, services = [] }) => {
 
         {/* Centered slider container */}
         <div className="relative py-2 flex justify-between">
-          <div className="w-full max-w-[1280px]">
+          <div className="w-full max-w-[1280px] ">
             <Slider ref={setSliderRef} {...settings}>
               {services.map((service, index) => (
-                <div key={index} className="px-2">
+                <div key={index} className="">
                   <Link
                     to={`/service/${title
                       .replace(/\s+/g, "-")}`}
-                    className="block py-1"
+                    className="block "
                   >
                     <div
                       className="w-36 md:w-44 h-48  bg-white text-indigo-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-end justify-end p-3 border border-indigo-100 relative overflow-hidden"
