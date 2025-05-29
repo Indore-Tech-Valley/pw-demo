@@ -26,14 +26,14 @@ export default defineConfig({
         display: 'standalone',
         icons: [
           {
-            src: '/pw.png',
+            src: '/pw.jpg',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/jpg',
           },
           {
-            src: '/pw.png',
+            src: '/pw.jpg',
             sizes: '512x512',
-            type: 'image/png',
+            type: 'image/jpg',
           },
         ],
       },

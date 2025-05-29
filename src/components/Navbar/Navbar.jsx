@@ -12,7 +12,7 @@
 
 import UserAuthModal from "../Auth/UserAuthModal";
   import { Link } from "react-router-dom";
-  import logo from '../../assets/logo.jpg';
+  import logo from '../../assets/pw.jpg';
 
 
 import { useNavigate } from "react-router-dom";
