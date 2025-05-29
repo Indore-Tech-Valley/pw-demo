@@ -147,79 +147,81 @@ const Cart = () => {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
-              <div key={item.id} className="bg-white rounded-lg shadow-sm p-6">
-                <div className="flex items-start gap-4">
-                  {/* Service Image */}
-                  <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                    <img 
-                      src={item.image} 
-                      alt={item.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+            <div key={item.id} className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    
+    {/* Service Image */}
+    <div className="w-full sm:w-20 h-40 sm:h-20 rounded-lg overflow-hidden flex-shrink-0">
+      <img 
+        src={item.image} 
+        alt={item.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
 
-                  {/* Service Details */}
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between mb-2">
-                      <div className=''>
-                        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded mb-2">
-                          {item.category}
-                        </span>
-                        <h3 className="font-semibold text-gray-900 text-lg">{item.name}</h3>
-                        <p className="text-gray-600 text-sm mb-2">{item.description}</p>
-                        
-                        {/* Rating and Duration */}
-                        <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                          <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                            <span>{item.rating}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            <span>{item.duration}</span>
-                          </div>
-                        </div>
-                      </div>
+    {/* Service Details */}
+    <div className="flex-1 w-full">
+      <div className="flex flex-col sm:flex-row justify-between gap-2 mb-2">
+        <div>
+          <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded mb-2">
+            {item.category}
+          </span>
+          <h3 className="font-semibold text-gray-900 text-base sm:text-lg">{item.name}</h3>
+          <p className="text-gray-600 text-sm sm:text-base mb-2">{item.description}</p>
+          
+          {/* Rating and Duration */}
+          <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-3">
+            <div className="flex items-center gap-1">
+              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+              <span>{item.rating}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span>{item.duration}</span>
+            </div>
+          </div>
+        </div>
 
-                      {/* Remove Button */}
-                      <button
-                        onClick={() => removeItem(item.id)}
-                        className="text-red-500 hover:text-red-700 p-1 px-4"
-                      >
-                        <Trash2 className="w-5 h-5" />
-                      </button>
-                    </div>
+        {/* Remove Button (top-right on larger screens) */}
+        <button
+          onClick={() => removeItem(item.id)}
+          className="text-red-500 hover:text-red-700 p-1 self-start sm:self-center"
+        >
+          <Trash2 className="w-5 h-5" />
+        </button>
+      </div>
 
-                    {/* Price and Quantity */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl font-bold text-gray-900">₹{item.price.toLocaleString()}</span>
-                        <span className="text-sm text-gray-500 line-through">₹{item.originalPrice.toLocaleString()}</span>
-                        <span className="text-sm text-green-600 font-medium">
-                          {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% off
-                        </span>
-                      </div>
+      {/* Price and Quantity */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span className="text-lg sm:text-xl font-bold text-gray-900">₹{item.price.toLocaleString()}</span>
+          <span className="text-sm text-gray-500 line-through">₹{item.originalPrice.toLocaleString()}</span>
+          <span className="text-sm text-green-600 font-medium">
+            {Math.round(((item.originalPrice - item.price) / item.originalPrice) * 100)}% off
+          </span>
+        </div>
 
-                      {/* Quantity Controls */}
-                      <div className="flex items-center gap-1 px-2">
-                        <button
-                          onClick={() => updateQuantity(item.id, -1)}
-                          className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
-                        >
-                          <Minus className="w-4 h-4" />
-                        </button>
-                        <span className="font-medium w-8 text-center">{item.quantity}</span>
-                        <button
-                          onClick={() => updateQuantity(item.id, 1)}
-                          className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* Quantity Controls */}
+        <div className="flex items-center gap-1 px-2">
+          <button
+            onClick={() => updateQuantity(item.id, -1)}
+            className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+          >
+            <Minus className="w-4 h-4" />
+          </button>
+          <span className="font-medium w-8 text-center">{item.quantity}</span>
+          <button
+            onClick={() => updateQuantity(item.id, 1)}
+            className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+          >
+            <Plus className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
             ))}
           </div>
 
@@ -228,17 +230,17 @@ const Cart = () => {
             {/* Promo Code */}
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h3 className="font-semibold text-gray-900 mb-4">Apply Promo Code</h3>
-              <div className="flex gap-2 mb-3">
+              <div className="flex flex-col sm:flex-row gap-2 mb-3">
                 <input
                   type="text"
                   placeholder="Enter promo code"
                   value={promoCode}
                   onChange={(e) => setPromoCode(e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="flex-1 px-1 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <button
                   onClick={applyPromoCode}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Apply
                 </button>

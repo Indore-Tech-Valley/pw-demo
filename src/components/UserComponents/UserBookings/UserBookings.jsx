@@ -199,96 +199,179 @@ const UserBookings = () => {
       {/* Bookings List */}
       <div className="space-y-4">
         {userBookings.map((booking) => (
-          <div key={booking.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+        <div key={booking.id} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
             <div className="p-4">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-gray-100 rounded-lg p-3 flex items-center justify-center">
-                    <span className="text-2xl">{getCategoryIcon(booking.category)}</span>
+              {/* Mobile Layout */}
+              <div className="block md:hidden">
+                {/* Header Section */}
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="bg-gray-100 rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+                    <span className="text-lg">{getCategoryIcon(booking.category)}</span>
                   </div>
                   
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <h3 className="text-lg font-semibold text-gray-900">{booking.service}</h3>
-                      <div className={`flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(booking.status)}`}>
-                        {getStatusIcon(booking.status)}
-                        <span className="ml-1 capitalize">{booking.status}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex-1 min-w-0 pr-2">
+                        <h3 className="text-base font-semibold text-gray-900 mb-1 leading-tight truncate">{booking.service}</h3>
+                        <p className="text-sm text-gray-600 mb-2 truncate">{booking.provider}</p>
+                      </div>
+                      <div className="text-right flex-shrink-0">
+                        <div className="text-lg font-semibold text-gray-900">${booking.price}</div>
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 mb-1">{booking.provider}</p>
-                    <div className="flex items-center text-sm text-gray-500 space-x-4">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {formatDate(booking.date)}
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {booking.time}
-                      </div>
-                      <div className="flex items-center">
-                        <span className="text-gray-400">•</span>
-                        <span className="ml-1">{booking.duration}</span>
-                      </div>
+                    <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(booking.status)} mb-3`}>
+                      {getStatusIcon(booking.status)}
+                      <span className="ml-1 capitalize">{booking.status}</span>
                     </div>
                   </div>
                 </div>
-                
-                <div className="text-right ">
-                  <div className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">${booking.price}</div>
-                  {/* <div className="flex space-x-2">
-                    <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                      <Edit3 className="h-4 w-4" />
-                    </button>
-                    <button className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                      <Trash2 className="h-4 w-4" />
-                    </button>
-                  </div> */}
+
+                {/* Date and Time */}
+                <div className="bg-gray-50 rounded-lg p-3 mb-3">
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="flex items-center text-gray-600">
+                      <Calendar className="h-3 w-3 mr-1 flex-shrink-0" />
+                      <span className="truncate">{formatDate(booking.date)}</span>
+                    </div>
+                    <div className="flex items-center text-gray-600">
+                      <Clock className="h-3 w-3 mr-1 flex-shrink-0" />
+                      <span className="truncate">{booking.time}</span>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-xs text-gray-500">
+                    Duration: {booking.duration}
+                  </div>
                 </div>
-              </div>
-              
-              <div className="border-t border-gray-100 pt-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+
+                {/* Contact Info */}
+                <div className="space-y-2 text-xs mb-3">
                   <div className="flex items-start">
-                    <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-600">{booking.address}</span>
+                    <MapPin className="h-3 w-3 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600 leading-tight">{booking.address}</span>
                   </div>
                   
                   <div className="flex items-center">
-                    <Phone className="h-4 w-4 text-gray-400 mr-2" />
+                    <Phone className="h-3 w-3 text-gray-400 mr-2 flex-shrink-0" />
                     <span className="text-gray-600">{booking.providerPhone}</span>
                   </div>
                 </div>
-                
+
+                {/* Notes */}
                 {booking.notes && (
-                  <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-700">
-                      <span className="font-medium">Notes:</span> {booking.notes}
+                  <div className="mb-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-200">
+                    <p className="text-xs text-gray-700">
+                      <span className="font-medium text-blue-800">Notes:</span> {booking.notes}
                     </p>
                   </div>
                 )}
-              </div>
-              
-              {booking.status === 'confirmed' && isUpcoming(booking.date) && (
-                <div className="border-t border-gray-100 pt-4 mt-4">
-                  <div className="flex space-x-3">
-                    <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                      View Details
-                    </button>
-                    <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium">
-                      Reschedule
+
+                {/* Action Buttons */}
+                {booking.status === 'confirmed' && isUpcoming(booking.date) && (
+                  <div className="border-t border-gray-100 pt-3 mt-3">
+                    <div className="grid grid-cols-2 gap-2">
+                      <button className="bg-blue-600 text-white py-2.5 px-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm">
+                        View Details
+                      </button>
+                      <button className="bg-gray-100 text-gray-700 py-2.5 px-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm">
+                        Reschedule
+                      </button>
+                    </div>
+                  </div>
+                )}
+                
+                {booking.status === 'completed' && (
+                  <div className="border-t border-gray-100 pt-3 mt-3">
+                    <button className="w-full bg-gray-100 text-gray-700 py-2.5 px-3 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm">
+                      Book Again
                     </button>
                   </div>
+                )}
+              </div>
+
+              {/* Desktop Layout */}
+              <div className="hidden md:block">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-gray-100 rounded-lg p-3 flex items-center justify-center">
+                      <span className="text-2xl">{getCategoryIcon(booking.category)}</span>
+                    </div>
+                    
+                    <div className="flex-1">
+                      <div className="flex items-center space-x-3 mb-2">
+                        <h3 className="text-lg font-semibold text-gray-900">{booking.service}</h3>
+                        <div className={`flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(booking.status)}`}>
+                          {getStatusIcon(booking.status)}
+                          <span className="ml-1 capitalize">{booking.status}</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 mb-1">{booking.provider}</p>
+                      <div className="flex items-center text-sm text-gray-500 space-x-4">
+                        <div className="flex items-center">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          {formatDate(booking.date)}
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {booking.time}
+                        </div>
+                        <div className="flex items-center">
+                          <span className="text-gray-400">•</span>
+                          <span className="ml-1">{booking.duration}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="text-right">
+                    <div className="text-2xl font-semibold text-gray-900 mb-2">${booking.price}</div>
+                  </div>
                 </div>
-              )}
-              
-              {booking.status === 'completed' && (
-                <div className="border-t border-gray-100 pt-4 mt-4">
-                  <button className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium">
-                    Book Again
-                  </button>
+                
+                <div className="border-t border-gray-100 pt-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-sm">
+                    <div className="flex items-start">
+                      <MapPin className="h-4 w-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600">{booking.address}</span>
+                    </div>
+                    
+                    <div className="flex items-center">
+                      <Phone className="h-4 w-4 text-gray-400 mr-2" />
+                      <span className="text-gray-600">{booking.providerPhone}</span>
+                    </div>
+                  </div>
+                  
+                  {booking.notes && (
+                    <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+                      <p className="text-sm text-gray-700">
+                        <span className="font-medium">Notes:</span> {booking.notes}
+                      </p>
+                    </div>
+                  )}
                 </div>
-              )}
+                
+                {booking.status === 'confirmed' && isUpcoming(booking.date) && (
+                  <div className="border-t border-gray-100 pt-4 mt-4">
+                    <div className="flex space-x-3">
+                      <button className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                        View Details
+                      </button>
+                      <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium">
+                        Reschedule
+                      </button>
+                    </div>
+                  </div>
+                )}
+                
+                {booking.status === 'completed' && (
+                  <div className="border-t border-gray-100 pt-4 mt-4">
+                    <button className="w-full bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors font-medium">
+                      Book Again
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ))}
