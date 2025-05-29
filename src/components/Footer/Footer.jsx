@@ -87,8 +87,7 @@ import { Link } from "react-router-dom";
             <div className="mt-12 py-6 border-t border-gray-300 text-center text-xs text-gray-500">
               <p>* As on December 31, 2025</p>
               <p className="mt-2">
-                © 2025 Tech Valley Mart Ltd. All rights reserved. | CIN:
-                U74140DL2014PTC274413
+                © 2025 Indore Tech Valley Ltd. All rights reserved.
               </p>
             </div>
           </div>

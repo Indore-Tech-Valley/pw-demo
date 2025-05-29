@@ -9,7 +9,7 @@ import Index from './Routes/Index'
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/pw-demo'>
         <Navbar />
         <div className="lg:pt-16 pt-24"> {/* pushes Index below the fixed navbar */}
           <Index />
