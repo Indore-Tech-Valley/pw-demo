@@ -63,7 +63,8 @@ import logo from "../../assets/pw.jpg"
                 <div>
                   <h4 className="text-base font-semibold mb-4 text-gray-900">For Professionals</h4>
                   <ul className="space-y-2 cursor-pointer text-gray-600">
-                    <li>Register as a Professional</li>
+                   <li> <Link to={`/service-provider-registration`}>Register as a Service Provider</Link></li>
+                   <li> <Link to={`/become-service-provider`}>Become Service Provider</Link></li>
                   </ul>
                 </div>
 

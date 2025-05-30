@@ -12,6 +12,9 @@ import ProfileComponent from '../components/ProfileComponent/ProfileComponent';
 import HelpCenter from '../components/HelpCenter/HelpCenter';
 import UserRatings from '../components/UserComponents/UserRatings/UserRatings';
 import UserAddresses from '../components/UserComponents/UserAddresses/UserAddresses';
+import ServiceProviderRegistration from '../components/ServiceComponents/ServiceAuth/ServiceProviderRegistration';
+import ServiceDashboard from '../components/ServiceComponents/ServiceDashboard/ServiceDashboard';
+import ServiceHeroSection from '../components/ServiceComponents/ServiceHeroSection/ServiceHeroSection';
 
 const Index = () => {
   return (
@@ -27,6 +30,9 @@ const Index = () => {
     <Route path="/ratings" element={<UserRatings/>} />
     <Route path="/help" element={<HelpCenter/>} />
     <Route path="/addresses" element={<UserAddresses/>} />
+    <Route path="/become-service-provider" element={<ServiceHeroSection/>} />
+    <Route path="/service-provider-registration" element={<ServiceProviderRegistration/>} />
+    <Route path="/service-provider-dashboard" element={<ServiceDashboard/>} />
     <Route path="/checkout" element={<Checkout />} />
     <Route path="/service/Salon-for-Women" element={<BeautySalonInterface />} />
     <Route path="/service/Home-Cleaning-Services" element={<CleaningServiceInterface />} />

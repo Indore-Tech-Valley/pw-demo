@@ -10,18 +10,21 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { CiUser, CiShoppingCart, CiMedicalClipboard } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 // User Authentication Modal Component
 function UserAuthModal({ isOpen, onClose }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
+  const navigate = useNavigate();
 
   if (!isOpen) return null;
 
   const handleContinue = () => {
     if (phoneNumber.trim()) {
       // Handle phone number verification logic here
-      console.log("Phone number:", countryCode + phoneNumber);
+      // console.log("Phone number:", countryCode + phoneNumber);
+      navigate('/service-provider-dashboard'); // Redirect to service provider dashboard
       // You can add your verification logic here
       onClose();
     }
